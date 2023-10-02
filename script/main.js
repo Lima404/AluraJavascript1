@@ -3,12 +3,16 @@ function sons (idElementoAudio){
 }
 
 const teclado = document.querySelectorAll('.tecla');
-let i = 0;
 
-while (i < teclado.length){
-    teclado[i].onclick = function (){
-        sons ('#som_tecla_pom')
+for (let i = 0; i < teclado.length; i++) {
+
+    const tecla = teclado[i];
+    const instrumento = tecla.classList[1];
+    //template de string
+    const idAudio = `#som_${instrumento}`;
+
+    tecla.onclick = function (){
+        sons (idAudio)
     }
-    i ++;
-    console.log(i);
+
 }
